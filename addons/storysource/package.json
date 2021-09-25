@@ -1,13 +1,13 @@
 {
   "name": "@storybook/addon-storysource",
-  "version": "6.3.0-alpha.7",
+  "version": "6.4.0-beta.1",
   "description": "View a story’s source code to see how it works and paste into your app",
   "keywords": [
     "addon",
     "storybook",
     "code"
   ],
-  "homepage": "https://github.com/storybookjs/storybook/tree/master/addons/storysource",
+  "homepage": "https://github.com/storybookjs/storybook/tree/main/addons/storysource",
   "bugs": {
     "url": "https://github.com/storybookjs/storybook/issues"
   },
@@ -16,13 +16,17 @@
     "url": "https://github.com/storybookjs/storybook.git",
     "directory": "addons/storysource"
   },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/storybook"
+  },
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/ts3.9/index.d.ts",
   "typesVersions": {
     "<3.8": {
-      "*": [
+      "dist/ts3.9/*": [
         "dist/ts3.4/*"
       ]
     }
@@ -37,17 +41,17 @@
     "prepare": "node ../../scripts/prepare.js"
   },
   "dependencies": {
-    "@storybook/addons": "6.3.0-alpha.7",
-    "@storybook/api": "6.3.0-alpha.7",
-    "@storybook/client-logger": "6.3.0-alpha.7",
-    "@storybook/components": "6.3.0-alpha.7",
-    "@storybook/router": "6.3.0-alpha.7",
-    "@storybook/source-loader": "6.3.0-alpha.7",
-    "@storybook/theming": "6.3.0-alpha.7",
+    "@storybook/addons": "6.4.0-beta.1",
+    "@storybook/api": "6.4.0-beta.1",
+    "@storybook/client-logger": "6.4.0-beta.1",
+    "@storybook/components": "6.4.0-beta.1",
+    "@storybook/router": "6.4.0-beta.1",
+    "@storybook/source-loader": "6.4.0-beta.1",
+    "@storybook/theming": "6.4.0-beta.1",
     "core-js": "^3.8.2",
     "estraverse": "^5.2.0",
     "loader-utils": "^2.0.0",
-    "prettier": "~2.2.1",
+    "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "react-syntax-highlighter": "^13.5.3",
     "regenerator-runtime": "^0.13.7"
@@ -71,7 +75,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "ca7182ff5f2ce82ade20e198fed65cd701bf6084",
+  "gitHead": "000a73948b4b91aa6bf84828b42ccdb7064f72bd",
+  "sbmodern": "dist/modern/index.js",
   "storybook": {
     "displayName": "Storysource",
     "icon": "https://user-images.githubusercontent.com/263385/101991675-48cdf300-3c7c-11eb-9400-58de5ac6daa7.png",

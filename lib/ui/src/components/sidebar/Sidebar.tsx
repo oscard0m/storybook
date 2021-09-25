@@ -1,4 +1,4 @@
-import { DOCS_MODE } from 'global';
+import global from 'global';
 import React, { FunctionComponent, useMemo } from 'react';
 
 import { styled } from '@storybook/theming';
@@ -13,6 +13,8 @@ import { Search } from './Search';
 import { SearchResults } from './SearchResults';
 import { Refs, CombinedDataset, Selection } from './types';
 import { useLastViewed } from './useLastViewed';
+
+const { DOCS_MODE } = global;
 
 const Container = styled.nav({
   position: 'absolute',
@@ -111,7 +113,12 @@ export const Sidebar: FunctionComponent<SidebarProps> = React.memo(
       <Container className="container sidebar-container">
         <CustomScrollArea vertical>
           <StyledSpaced row={1.6}>
-            <Heading className="sidebar-header" menuHighlighted={menuHighlighted} menu={menu} />
+            <Heading
+              className="sidebar-header"
+              menuHighlighted={menuHighlighted}
+              menu={menu}
+              skipLinkHref="#storybook-preview-wrapper"
+            />
 
             <Search
               dataset={dataset}

@@ -1,11 +1,11 @@
 {
   "name": "@storybook/html",
-  "version": "6.3.0-alpha.7",
+  "version": "6.4.0-beta.1",
   "description": "Storybook for HTML: View HTML snippets in isolation with Hot Reloading.",
   "keywords": [
     "storybook"
   ],
-  "homepage": "https://github.com/storybookjs/storybook/tree/master/app/html",
+  "homepage": "https://github.com/storybookjs/storybook/tree/main/app/html",
   "bugs": {
     "url": "https://github.com/storybookjs/storybook/issues"
   },
@@ -14,13 +14,17 @@
     "url": "https://github.com/storybookjs/storybook.git",
     "directory": "app/html"
   },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/storybook"
+  },
   "license": "MIT",
   "main": "dist/cjs/client/index.js",
   "module": "dist/esm/client/index.js",
   "types": "dist/ts3.9/client/index.d.ts",
   "typesVersions": {
     "<3.8": {
-      "*": [
+      "dist/ts3.9/*": [
         "dist/ts3.4/*"
       ]
     }
@@ -41,10 +45,13 @@
     "prepare": "node ../../scripts/prepare.js"
   },
   "dependencies": {
-    "@storybook/addons": "6.3.0-alpha.7",
-    "@storybook/client-api": "6.3.0-alpha.7",
-    "@storybook/core": "6.3.0-alpha.7",
-    "@storybook/core-common": "6.3.0-alpha.7",
+    "@storybook/addons": "6.4.0-beta.1",
+    "@storybook/client-api": "6.4.0-beta.1",
+    "@storybook/core": "6.4.0-beta.1",
+    "@storybook/core-common": "6.4.0-beta.1",
+    "@storybook/csf": "0.0.2--canary.6aca495.0",
+    "@storybook/preview-web": "6.4.0-beta.1",
+    "@storybook/store": "6.4.0-beta.1",
     "@types/webpack-env": "^1.16.0",
     "core-js": "^3.8.2",
     "global": "^4.4.0",
@@ -64,5 +71,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "ca7182ff5f2ce82ade20e198fed65cd701bf6084"
+  "gitHead": "000a73948b4b91aa6bf84828b42ccdb7064f72bd",
+  "sbmodern": "dist/modern/client/index.js"
 }

@@ -1,11 +1,11 @@
 {
   "name": "@storybook/addons",
-  "version": "6.3.0-alpha.7",
+  "version": "6.4.0-beta.1",
   "description": "Storybook addons store",
   "keywords": [
     "storybook"
   ],
-  "homepage": "https://github.com/storybookjs/storybook/tree/master/lib/addons",
+  "homepage": "https://github.com/storybookjs/storybook/tree/main/lib/addons",
   "bugs": {
     "url": "https://github.com/storybookjs/storybook/issues"
   },
@@ -14,6 +14,10 @@
     "url": "https://github.com/storybookjs/storybook.git",
     "directory": "lib/addons"
   },
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/storybook"
+  },
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/cjs/public_api.js",
@@ -21,7 +25,7 @@
   "types": "dist/ts3.9/public_api.d.ts",
   "typesVersions": {
     "<3.8": {
-      "*": [
+      "dist/ts3.9/*": [
         "dist/ts3.4/*"
       ]
     }
@@ -36,12 +40,13 @@
     "prepare": "node ../../scripts/prepare.js"
   },
   "dependencies": {
-    "@storybook/api": "6.3.0-alpha.7",
-    "@storybook/channels": "6.3.0-alpha.7",
-    "@storybook/client-logger": "6.3.0-alpha.7",
-    "@storybook/core-events": "6.3.0-alpha.7",
-    "@storybook/router": "6.3.0-alpha.7",
-    "@storybook/theming": "6.3.0-alpha.7",
+    "@storybook/api": "6.4.0-beta.1",
+    "@storybook/channels": "6.4.0-beta.1",
+    "@storybook/client-logger": "6.4.0-beta.1",
+    "@storybook/core-events": "6.4.0-beta.1",
+    "@storybook/csf": "0.0.2--canary.6aca495.0",
+    "@storybook/router": "6.4.0-beta.1",
+    "@storybook/theming": "6.4.0-beta.1",
     "core-js": "^3.8.2",
     "global": "^4.4.0",
     "regenerator-runtime": "^0.13.7"
@@ -53,5 +58,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "ca7182ff5f2ce82ade20e198fed65cd701bf6084"
+  "gitHead": "000a73948b4b91aa6bf84828b42ccdb7064f72bd",
+  "sbmodern": "dist/modern/public_api.js"
 }

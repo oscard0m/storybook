@@ -3,7 +3,7 @@ import path from 'path';
 import { toRequireContext } from '@storybook/core-common';
 import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
 import global from 'global';
-import { ArgTypesEnhancer, DecoratorFunction } from '@storybook/client-api';
+import { AnyFramework, ArgsEnhancer, ArgTypesEnhancer, DecoratorFunction } from '@storybook/csf';
 
 import { ClientApi } from './Loader';
 import { StoryshotsOptions } from '../api/StoryshotsOptions';
@@ -69,9 +69,9 @@ function getConfigPathParts(input: string): Output {
   return { preview: configDir };
 }
 
-function configure(
+function configure<TFramework extends AnyFramework>(
   options: {
-    storybook: ClientApi;
+    storybook: ClientApi<TFramework>;
   } & StoryshotsOptions
 ): void {
   const { configPath = '.storybook', config, storybook } = options;
@@ -85,19 +85,31 @@ function configure(
 
   if (preview) {
     // This is essentially the same code as lib/core/src/server/preview/virtualModuleEntry.template
-    const { parameters, decorators, globals, globalTypes, argTypesEnhancers } = jest.requireActual(
-      preview
-    );
+    const {
+      parameters,
+      decorators,
+      globals,
+      globalTypes,
+      argsEnhancers,
+      argTypesEnhancers,
+    } = jest.requireActual(preview);
 
     if (decorators) {
-      decorators.forEach((decorator: DecoratorFunction) => storybook.addDecorator(decorator));
+      decorators.forEach((decorator: DecoratorFunction<TFramework>) =>
+        storybook.addDecorator(decorator)
+      );
     }
     if (parameters || globals || globalTypes) {
       storybook.addParameters({ ...parameters, globals, globalTypes });
     }
+    if (argsEnhancers) {
+      argsEnhancers.forEach((enhancer: ArgsEnhancer<TFramework>) =>
+        storybook.addArgsEnhancer(enhancer as any)
+      );
+    }
     if (argTypesEnhancers) {
-      argTypesEnhancers.forEach((enhancer: ArgTypesEnhancer) =>
-        storybook.addArgTypesEnhancer(enhancer)
+      argTypesEnhancers.forEach((enhancer: ArgTypesEnhancer<TFramework>) =>
+        storybook.addArgTypesEnhancer(enhancer as any)
       );
     }
   }
